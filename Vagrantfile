@@ -56,6 +56,7 @@ Vagrant.configure('2') do |config|
     d.has_ssh = true
   end
   config.ssh.port = 2211
+  config.ssh.username = 'ubuntu'
   # config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
