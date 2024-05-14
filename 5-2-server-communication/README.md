@@ -1,4 +1,4 @@
-Run `python -m http.server 3011` to start the simple web server.
+Run `python3 -m http.server 3011` to start the simple web server.
 
 Visit http://127.0.0.1:3011 in your browser.
 
