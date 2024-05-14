@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2 Axios</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<h1>2 Axios</h1>
+<p id="msg"></p>
+<script type="text/javascript">
+(function() { // Common practice to avoid global scope
+
+axios.get('./data-1.json')
+  .then(function (response) {
+    document.getElementById('msg').innerHTML = response.data.msg;
+  });
+
+})();
+</script>
+</body>
+</html>

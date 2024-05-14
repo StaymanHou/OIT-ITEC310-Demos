@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3 Fetch</title>
+</head>
+<body>
+<h1>3 Fetch</h1>
+<p id="msg"></p>
+<script type="text/javascript">
+(async function() { // Common practice to avoid global scope
+
+const response = await fetch('./data-2.json');
+const data = await response.json();
+document.getElementById('msg').innerHTML = data.msg;
+
+})();
+</script>
+</body>
+</html>

@@ -20,6 +20,7 @@ RUN apt-get install -y openssh-server wget lsb-release sudo gnupg2 git build-ess
 
 EXPOSE 22
 EXPOSE 3011
+EXPOSE 4011
 
 RUN mkdir -p /var/run/sshd
 RUN chmod 0755 /var/run/sshd
@@ -51,15 +52,15 @@ RUN su ubuntu -c "source /home/ubuntu/.rvm/scripts/rvm && rvm pkg install openss
 RUN su ubuntu -c "source /home/ubuntu/.rvm/scripts/rvm && rvm install ruby-3 --with-openssl-dir=/home/ubuntu/.rvm/usr"
 
 # Install phpbrew & php
-RUN su ubuntu -c "curl -L -O https://github.com/phpbrew/phpbrew/releases/latest/download/phpbrew.phar \
-    && chmod +x phpbrew.phar \
-    && sudo mv phpbrew.phar /usr/local/bin/phpbrew \
-    && phpbrew init \
-    && [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc \
-    && phpbrew update \
-    && cd $HOME && wget https://www.openssl.org/source/openssl-1.1.1i.tar.gz && tar -xzf $HOME/openssl-1.1.1i.tar.gz && cd openssl-1.1.1i && ./Configure --prefix=$HOME/openssl-1.1.1i/bin -fPIC -shared linux-x86_64 && make -j 8 && make install \
-    && export PKG_CONFIG_PATH=$HOME/openssl-1.1.1i/bin/lib/pkgconfig && phpbrew install 8.3 \
-    && phpbrew switch 8.3"
+#RUN su ubuntu -c "cd /home/ubuntu && curl -L -O https://github.com/phpbrew/phpbrew/releases/latest/download/phpbrew.phar \
+#    && chmod +x phpbrew.phar \
+#    && sudo mv phpbrew.phar /usr/local/bin/phpbrew \
+#    && phpbrew init \
+#    && [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc \
+#    && phpbrew update \
+#    && cd /home/ubuntu && wget https://www.openssl.org/source/openssl-1.1.1i.tar.gz && tar -xzf /home/ubuntu/openssl-1.1.1i.tar.gz && cd openssl-1.1.1i && ./Configure --prefix=/home/ubuntu/openssl-1.1.1i/bin -fPIC -shared linux-x86_64 && make -j 8 && make install \
+#    && export PKG_CONFIG_PATH=/home/ubuntu/openssl-1.1.1i/bin/lib/pkgconfig && phpbrew install 8.3 \
+#    && phpbrew switch 8.3"
 
 # Install postgresql
 #RUN apt-get install -y postgresql postgresql-contrib libpq-dev

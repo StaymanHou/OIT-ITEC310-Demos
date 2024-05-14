@@ -1,0 +1,13 @@
+{
+  "name": "bible_trivia_io_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "collections": "^5.1.12",
+    "socket.io": "^2.3.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
