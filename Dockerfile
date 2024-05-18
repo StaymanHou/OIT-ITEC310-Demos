@@ -63,5 +63,8 @@ RUN su ubuntu -c "source /home/ubuntu/.rvm/scripts/rvm && rvm install ruby-3 --w
 #    && phpbrew switch 8.3"
 
 # Install postgresql
-#RUN apt-get install -y postgresql postgresql-contrib libpq-dev
-#RUN /etc/init.d/postgresql start && su postgres -c "psql -c \"CREATE USER ubuntu SUPERUSER;\""
+RUN apt-get install -y postgresql postgresql-contrib libpq-dev
+RUN /etc/init.d/postgresql start && su postgres -c "psql -c \"CREATE USER ubuntu SUPERUSER;\""
+
+# Install mongodb
+RUN
