@@ -49,7 +49,7 @@ RUN echo 'gem: --no-document' > /home/ubuntu/.gemrc
 RUN su ubuntu -c "gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB"
 RUN su ubuntu -c "curl -sSL https://get.rvm.io | bash -s stable"
 RUN su ubuntu -c "source /home/ubuntu/.rvm/scripts/rvm && rvm pkg install openssl"
-RUN su ubuntu -c "source /home/ubuntu/.rvm/scripts/rvm && rvm install ruby-3 --with-openssl-dir=/home/ubuntu/.rvm/usr"
+RUN su ubuntu -c "source /home/ubuntu/.rvm/scripts/rvm && rvm install ruby-3.0.4 --with-openssl-dir=/home/ubuntu/.rvm/usr"
 
 # Install phpbrew & php
 #RUN su ubuntu -c "cd /home/ubuntu && curl -L -O https://github.com/phpbrew/phpbrew/releases/latest/download/phpbrew.phar \

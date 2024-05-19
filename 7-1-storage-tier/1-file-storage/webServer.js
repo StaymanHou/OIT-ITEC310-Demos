@@ -44,10 +44,10 @@ app.get("/read/:objId", function (request, response) {
 
   fs.readFile(`data/${objId}`, 'utf8', (err, data) => {
     if (err) {
-      response.send(`Reading data from data/${objId}\n\nData does not exist!`);
+      response.send(`Reading data from data/${objId}<br />Data does not exist!`);
       return;
     }
-    response.send(`Reading data from data/${objId}\n\n${data}`);
+    response.send(`Reading data from data/${objId}<br />${data}`);
   });
 });
 
