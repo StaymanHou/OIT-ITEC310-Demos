@@ -1,0 +1,1 @@
+Examples of bad input validation experience - https://medium.com/helpshift-engineering/form-validation-user-experiences-from-worst-to-best-with-react-examples-a8636164b1f2
