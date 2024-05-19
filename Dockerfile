@@ -64,7 +64,13 @@ RUN su ubuntu -c "source /home/ubuntu/.rvm/scripts/rvm && rvm install ruby-3 --w
 
 # Install postgresql
 RUN apt-get install -y postgresql postgresql-contrib libpq-dev
-RUN /etc/init.d/postgresql start && su postgres -c "psql -c \"CREATE USER ubuntu SUPERUSER;\""
+RUN /etc/init.d/postgresql start && su postgres -c "psql -c \"CREATE USER ubuntu WITH PASSWORD 'ubuntu' SUPERUSER;\""
+RUN /etc/init.d/postgresql start && su postgres -c "psql -c \"CREATE DATABASE demo_7_1_storage_tier;\""
 
 # Install mongodb
-RUN
+RUN mkdir -p /data/db
+RUN curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" > /etc/apt/sources.list.d/mongodb-org-7.0.list
+RUN apt-get update
+RUN apt-get install -y mongodb-org
+

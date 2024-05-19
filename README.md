@@ -13,3 +13,7 @@ Run the command `vagrant up` to boot the container. (It can take pretty long as 
 Run the command `vagrant ssh` to access the console of the container.
 
 After ssh into the container, run `cd /vagrant`. All demo code is located there.
+
+To start PostgreSQL, run `sudo /etc/init.d/postgresql start`
+
+To start MongoDB, run `sudo mongod --fork --logpath /var/log/mongodb/main.log`
