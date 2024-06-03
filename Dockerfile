@@ -74,3 +74,8 @@ RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.
 RUN apt-get update
 RUN apt-get install -y mongodb-org
 
+# Install pip & Flask
+RUN apt-get install -y python3-pip python3-flask
+
+# Install JDK & Maven
+RUN apt-get install -y default-jdk maven
